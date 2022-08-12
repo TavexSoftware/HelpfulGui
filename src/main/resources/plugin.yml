@@ -1,0 +1,8 @@
+name: Helpfulgui
+version: '${project.version}'
+main: ml.maxht.helpfulgui.Helpfulgui
+api-version: 1.19
+prefix: helpfulgui
+authors: [ Maxhe ]
+description: A helpful gui plugin for admins and Players
+website: maxht.ml
