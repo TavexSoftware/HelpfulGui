@@ -13,12 +13,6 @@ public class adminguicommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (sender instanceof Player p){
-            World w = Helpfulgui.getPlugin(Helpfulgui.class).getServer().getWorld(p.getWorld().getName());
-            w.spawnEntity(p.getLocation(), EntityType.OCELOT);
-
-        }
-
         return true;
     }
 }
