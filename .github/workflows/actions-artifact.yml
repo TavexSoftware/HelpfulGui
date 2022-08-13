@@ -3,7 +3,7 @@ name: Publish GitHub Actions Artifacts
 
 on:
   push:
-    branches: [ change-to-master-or-main ]
+    branches: [ main ]
 
 jobs:
        
