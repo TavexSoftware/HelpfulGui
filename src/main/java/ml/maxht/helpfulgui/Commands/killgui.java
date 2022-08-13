@@ -16,6 +16,7 @@ public class killgui implements CommandExecutor {
             if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("enablekillgui") == true) {
                 // Stuff in here
                 p.sendMessage("PlaceHolder");
+                // TODO Add Rest of command from tutorial
             } else {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getString("killguidisabledmessage")));
             }
