@@ -1,1 +1,1 @@
-COPY --chown=node:node ./package*.json ./
+COPY --chown=appuser:appuser target/**.jar /home/appuser/app.jar
