@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '16'
-          distrobution: adopt
+          distribution: adopt
 
       # Runs a set of commands using the runners shell
       - name: Build Project
