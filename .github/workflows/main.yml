@@ -1,9 +1,9 @@
-name: Dev
+name: CI
 
 on:
   push:
     branches:
-      - 'dev'
+      - 'main'
 
 jobs:
   docker:
