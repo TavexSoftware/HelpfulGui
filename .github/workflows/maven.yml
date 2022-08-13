@@ -30,6 +30,7 @@ jobs:
         with:
           java-version: 16
           java-package: jdk
+          distrobution: adopt
       -
         name: Build and push
         uses: docker/build-push-action@v3
