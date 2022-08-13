@@ -1,6 +1,7 @@
 package ml.maxht.helpfulgui.Commands;
 
 import ml.maxht.helpfulgui.Helpfulgui;
+import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,6 +18,7 @@ public class sillyosy implements CommandExecutor {
             if (p.hasPermission("helpfulgui.sillyosy")) {
                 World w = Helpfulgui.getPlugin(Helpfulgui.class).getServer().getWorld(p.getWorld().getName());
                 w.spawnEntity(p.getLocation(), EntityType.OCELOT);
+                p.sendMessage(ChatColor.GREEN + "You are a silly osy");
             }
         }
 
