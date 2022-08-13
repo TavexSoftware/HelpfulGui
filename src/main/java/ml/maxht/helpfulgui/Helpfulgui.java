@@ -2,8 +2,6 @@ package ml.maxht.helpfulgui;
 
 import ml.maxht.helpfulgui.Commands.adminguicommand;
 import ml.maxht.helpfulgui.Commands.killgui;
-import ml.maxht.helpfulgui.Commands.sillyosy;
-import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Helpfulgui extends JavaPlugin {
@@ -18,7 +16,6 @@ public final class Helpfulgui extends JavaPlugin {
         saveDefaultConfig();
         getCommand("killgui").setExecutor(new killgui());
         getCommand("admingui").setExecutor(new adminguicommand());
-        getCommand("sillyosy").setExecutor(new sillyosy());
         // Do everything else first
         System.out.printf("HelpfulGui Has Started");
     }
