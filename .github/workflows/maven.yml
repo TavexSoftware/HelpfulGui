@@ -32,6 +32,11 @@ jobs:
           java-package: jdk
           distribution: adopt
       -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+        with:
+          version: v0.7.0
+      -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
