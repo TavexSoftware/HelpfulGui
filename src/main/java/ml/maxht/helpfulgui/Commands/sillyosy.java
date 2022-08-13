@@ -18,7 +18,7 @@ public class sillyosy implements CommandExecutor {
             if (p.hasPermission("helpfulgui.sillyosy")) {
                 World w = Helpfulgui.getPlugin(Helpfulgui.class).getServer().getWorld(p.getWorld().getName());
                 w.spawnEntity(p.getLocation(), EntityType.OCELOT);
-                p.sendMessage(ChatColor.GREEN + "You are a silly osy");
+                p.sendMessage(ChatColor.GREEN + "Spawned and Ocelot");
             }
         }
 
