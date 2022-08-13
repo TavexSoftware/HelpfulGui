@@ -14,5 +14,7 @@ I will close them immediately because I know stuff doesn't work.
 <br>* You are using spigot or above.
 The plugin doesn't work on older versions or on bukkit servers. If the plugin doesn't support a newer version of mc I will fix it later probably. If it doesn't work on an older version of minecraft I can't fix it because I'm a student. I don't have **THAT** much time. You will probably have to look for community versions.
 
+### Dev branch is currently developing v1.0
+
 ### Enjoy
 Anyways Hope you enjoy the plugin!
