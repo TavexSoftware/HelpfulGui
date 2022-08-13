@@ -36,6 +36,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          distribution: adopt
           push: true
           tags: user/app:latest
