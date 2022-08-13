@@ -18,6 +18,7 @@ public final class Helpfulgui extends JavaPlugin {
         getCommand("admingui").setExecutor(new adminguicommand());
         // Do everything else first
         System.out.printf("HelpfulGui Has Started");
+        // End Of onEnable
     }
 
     @Override
