@@ -30,7 +30,7 @@ public class killgui implements CommandExecutor {
                 dielore.add("Kill yourself instantly");
                 diemeta.setLore(dielore);
                 diemeta.addEnchant(Enchantment.DAMAGE_ALL, 10, true);
-                die.setItemMeta(diemeta)
+                die.setItemMeta(diemeta);
                 p.openInventory(killGui);
                 // TODO Add Rest of command from tutorial
             } else {
