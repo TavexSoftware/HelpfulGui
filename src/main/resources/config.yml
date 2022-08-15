@@ -1,6 +1,6 @@
 # Config For Helpful Gui
 
 # KillGUI Specific
-enablekillgui: true
+enablekillgui: 'true'
 killguidisabledmessage: "&4This Command Isn't enabled on this server!"
-killguiperms: false
+killguiperms: 'false'
