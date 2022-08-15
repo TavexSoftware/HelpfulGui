@@ -30,9 +30,28 @@ public class killgui implements CommandExecutor {
                 dielore.add("Kill yourself instantly");
                 diemeta.setLore(dielore);
                 diemeta.addEnchant(Enchantment.DAMAGE_ALL, 10, true);
+                diemeta.setDisplayName(ChatColor.RED + "Die");
                 die.setItemMeta(diemeta);
+                killGui.setItem(1, die);
+                ItemStack fill = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+                ItemMeta fillmeta = fill.getItemMeta();
+                ArrayList filllore = new ArrayList<>();
+                filllore.add("There is nothing here!");
+                fillmeta.setLore(filllore);
+                fillmeta.setDisplayName(ChatColor.YELLOW + "There is nothing here!");
+                fill.setItemMeta(fillmeta);
+                killGui.setItem(2, fill);
+                killGui.setItem(3, fill);
+                killGui.setItem(4, fill);
+                killGui.setItem(5, fill);
+                killGui.setItem(6, fill);
+                killGui.setItem(7, fill);
+                killGui.setItem(8, fill);
+                killGui.setItem(9, fill);
+
+
+
                 p.openInventory(killGui);
-                // TODO Add Rest of command from tutorial
             } else {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getString("killguidisabledmessage")));
             }

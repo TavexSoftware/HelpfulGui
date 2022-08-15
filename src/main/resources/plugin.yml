@@ -6,3 +6,6 @@ prefix: helpfulgui
 authors: [ Maxhe ]
 description: A helpful gui plugin for admins and Players
 website: maxht.ml
+commands:
+  killgui:
+    description: Shows options to kill the player
