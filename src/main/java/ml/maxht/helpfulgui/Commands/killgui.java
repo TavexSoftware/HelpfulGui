@@ -22,7 +22,7 @@ public class killgui implements CommandExecutor {
         if (sender instanceof Player p) {
 
             if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("enablekillgui")) {
-                Inventory killGui = Bukkit.createInventory(p, 9, ChatColor.GREEN + "Kill Gui");
+                Inventory killGui = Bukkit.createInventory(p, 9, ChatColor.RED + "Kill Gui");
                 ItemStack die = new ItemStack(Material.NETHERITE_SWORD, 1);
                 ItemMeta diemeta = die.getItemMeta();
                 ArrayList dielore = new ArrayList<>();
