@@ -9,4 +9,11 @@ website: maxht.ml
 commands:
   killgui:
     description: Shows options to kill the player
+    aliases:
+      - die
+      - killme
+      - suicide
+      - iwanttodie
+      - death
+      - dieplayer
 
