@@ -1,6 +1,5 @@
 package ml.maxht.helpfulgui;
 
-import ml.maxht.helpfulgui.Commands.adminguicommand;
 import ml.maxht.helpfulgui.Commands.killgui;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,8 +13,11 @@ public final class Helpfulgui extends JavaPlugin {
         plugin = this;
         getConfig().options().copyDefaults();
         saveDefaultConfig();
+        if (getConfig().getString("killguidisabledmessage") == null){
+            System.out.println("Your config is invalid!");
+            getServer().getPluginManager().disablePlugin(this);
+        }
         getCommand("killgui").setExecutor(new killgui());
-        getCommand("admingui").setExecutor(new adminguicommand());
         // Do everything else first
         System.out.printf("HelpfulGui Has Started");
         // End Of onEnable

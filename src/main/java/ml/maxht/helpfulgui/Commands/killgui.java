@@ -21,51 +21,33 @@ public class killgui implements CommandExecutor {
 
         if (sender instanceof Player p) {
 
-            if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("enablekillgui") == true) {
+            if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("enablekillgui")) {
+                Inventory killGui = Bukkit.createInventory(p, 9, ChatColor.GREEN + "Kill Gui");
+                ItemStack die = new ItemStack(Material.NETHERITE_SWORD, 1);
+                ItemMeta diemeta = die.getItemMeta();
+                ArrayList dielore = new ArrayList<>();
+                dielore.add("Kill yourself instantly");
+                diemeta.setLore(dielore);
+                diemeta.addEnchant(Enchantment.DAMAGE_ALL, 10, true);
+                diemeta.setDisplayName(ChatColor.RED + "Die");
+                die.setItemMeta(diemeta);
+                ItemStack fill = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+                ItemMeta fillmeta = fill.getItemMeta();
+                ArrayList filllore = new ArrayList<>();
+                filllore.add("There is nothing here!");
+                fillmeta.setLore(filllore);
+                fillmeta.setDisplayName(ChatColor.YELLOW + "There is nothing here!");
+                fill.setItemMeta(fillmeta);
+                killGui.setItem(0, die);
+                killGui.setItem(1, fill);
 
-                if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("killguiperms") == true) {
+                if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("killguiperms")) {
                     if (p.hasPermission("helpfulgui.kill")) {
-                        Inventory killGui = Bukkit.createInventory(p, 9, ChatColor.GREEN + "Kill Gui");
-                        ItemStack die = new ItemStack(Material.NETHERITE_SWORD, 1);
-                        ItemMeta diemeta = die.getItemMeta();
-                        ArrayList dielore = new ArrayList<>();
-                        dielore.add("Kill yourself instantly");
-                        diemeta.setLore(dielore);
-                        diemeta.addEnchant(Enchantment.DAMAGE_ALL, 10, true);
-                        diemeta.setDisplayName(ChatColor.RED + "Die");
-                        die.setItemMeta(diemeta);
-                        ItemStack fill = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
-                        ItemMeta fillmeta = fill.getItemMeta();
-                        ArrayList filllore = new ArrayList<>();
-                        filllore.add("There is nothing here!");
-                        fillmeta.setLore(filllore);
-                        fillmeta.setDisplayName(ChatColor.YELLOW + "There is nothing here!");
-                        fill.setItemMeta(fillmeta);
-                        ItemStack[] menuitems = {die, fill};
-                        killGui.setContents(menuitems);
                         p.openInventory(killGui);
                     } else {
                         p.sendMessage(ChatColor.GREEN + "You do not have the correct perms!");
                     }
-                } else if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("killguiperms") == false) {
-                    Inventory killGui = Bukkit.createInventory(p, 9, ChatColor.GREEN + "Kill Gui");
-                    ItemStack die = new ItemStack(Material.NETHERITE_SWORD, 1);
-                    ItemMeta diemeta = die.getItemMeta();
-                    ArrayList dielore = new ArrayList<>();
-                    dielore.add("Kill yourself instantly");
-                    diemeta.setLore(dielore);
-                    diemeta.addEnchant(Enchantment.DAMAGE_ALL, 10, true);
-                    diemeta.setDisplayName(ChatColor.RED + "Die");
-                    die.setItemMeta(diemeta);
-                    ItemStack fill = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
-                    ItemMeta fillmeta = fill.getItemMeta();
-                    ArrayList filllore = new ArrayList<>();
-                    filllore.add("There is nothing here!");
-                    fillmeta.setLore(filllore);
-                    fillmeta.setDisplayName(ChatColor.YELLOW + "There is nothing here!");
-                    fill.setItemMeta(fillmeta);
-                    ItemStack[] menuitems = {die, fill};
-                    killGui.setContents(menuitems);
+                } else if (!Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("killguiperms")) {
                     p.openInventory(killGui);
 
                 }
