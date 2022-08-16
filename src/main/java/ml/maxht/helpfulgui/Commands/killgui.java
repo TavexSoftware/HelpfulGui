@@ -54,8 +54,6 @@ public class killgui implements CommandExecutor {
             } else {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getString("killguidisabledmessage")));
             }
-
-            return true;
         } else {
             System.out.println("Only players can use this command!");
         }
