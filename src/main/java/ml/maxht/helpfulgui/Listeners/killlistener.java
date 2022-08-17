@@ -19,7 +19,7 @@ public class killlistener implements Listener {
     @EventHandler
     public void onMenuClick(InventoryClickEvent e){
 
-        Player p = e.getWhoClicked();
+        Player p = (Player) e.getWhoClicked();
 
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Kill Gui")){
             Inventory sure = Bukkit.createInventory(p, 9, ChatColor.RED + "Kill GUI: Are You Sure?");
