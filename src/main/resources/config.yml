@@ -4,3 +4,6 @@
 enablekillgui: true
 killguidisabledmessage: "&4This Command Isn't enabled on this server!"
 killguiperms: false
+
+# Admin Gui Specific
+enableadmin: true
