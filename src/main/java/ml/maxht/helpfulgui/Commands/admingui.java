@@ -25,7 +25,7 @@ public class admingui implements CommandExecutor {
         if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("enableadmin")) {
             if (sender instanceof Player p) {
                 if (p.hasPermission("helpfulgui.admin")) {
-                    Inventory admin = Bukkit.createInventory(p, 18, ChatColor.YELLOW + "Admin Gui");
+                    Inventory admin = Bukkit.createInventory(p, 9, ChatColor.YELLOW + "Admin Gui");
                     ItemStack ban = new ItemStack(Material.NETHERITE_AXE);
                     ItemMeta banmeta = ban.getItemMeta();
                     banmeta.setDisplayName(ChatColor.RED + "Ban");
@@ -37,7 +37,12 @@ public class admingui implements CommandExecutor {
                     ItemStack playertp = new ItemStack(Material.ENDER_PEARL, 1);
                     ItemMeta tpmeta = playertp.getItemMeta();
                     tpmeta.setDisplayName(ChatColor.GREEN + "Teleport To Player");
+                    ArrayList tplore = new ArrayList<>();
+                    tplore.add("Choose a player to teleport to");
+                    tpmeta.setLore(tplore);
+                    playertp.setItemMeta(tpmeta);
                     admin.setItem(0, ban);
+                    admin.setItem(1, playertp);
 
                     p.openInventory(admin);
                 } else {

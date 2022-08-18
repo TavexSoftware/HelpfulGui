@@ -17,15 +17,11 @@ public final class Helpfulgui extends JavaPlugin {
         plugin = this;
         getConfig().options().copyDefaults();
         saveDefaultConfig();
-        if (getConfig().getString("killguidisabledmessage") == null){
-            System.out.println("Your config is invalid!");
-            getServer().getPluginManager().disablePlugin(this);
-        }
-        getCommand("killgui").setExecutor(new killgui());
-        getServer().getPluginManager().registerEvents(new killlistener(), this);
-        getCommand("admin").setExecutor(new admingui());
         getServer().getPluginManager().registerEvents(new adminlistener(), this);
         getServer().getPluginManager().registerEvents(new banplayer(), this);
+        getServer().getPluginManager().registerEvents(new killlistener(), this);
+        getCommand("killgui").setExecutor(new killgui());
+        getCommand("admin").setExecutor(new admingui());
         // Do everything else first
         System.out.printf("HelpfulGui Has Started");
         // End Of onEnable

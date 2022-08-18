@@ -19,7 +19,7 @@ import java.util.Collections;
 public class banplayer implements Listener {
 
     @EventHandler
-    public void banmenu (InventoryClickEvent e) {
+    public void onbanmenu (InventoryClickEvent e) {
 
         Player p = (Player) e.getWhoClicked();
 
@@ -75,6 +75,7 @@ public class banplayer implements Listener {
                 p.closeInventory();
                 String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
                 p.getServer().getBanList(BanList.Type.NAME).addBan(name, "You have been banned from the server", null, p.getDisplayName());
+                p.getServer().getPlayer(name).kickPlayer("You have been banned from the server");
                 p.sendMessage("Banned Player");
             }
             if (e.getCurrentItem().getItemMeta().getDisplayName() == ChatColor.RED + "No"){
