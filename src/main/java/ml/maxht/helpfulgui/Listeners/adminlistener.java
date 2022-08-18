@@ -108,7 +108,6 @@ public class adminlistener implements Listener {
                 if (e.getCurrentItem().getItemMeta().getDisplayName() == ChatColor.GREEN + "Yes"){
                     p.closeInventory();
                     String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
-                    p.getServer().getBanList(BanList.Type.NAME).addBan(name, "Banned By Admin");
                     p.sendMessage("Banned Player");
                 }
                 if (e.getCurrentItem().getItemMeta().getDisplayName() == ChatColor.RED + "No"){

@@ -28,7 +28,8 @@ public class admingui implements CommandExecutor {
                     Inventory admin = Bukkit.createInventory(p, 18, ChatColor.YELLOW + "Admin Gui");
                     ItemStack title = new ItemStack(Material.PLAYER_HEAD);
                     SkullMeta titlemeta = (SkullMeta) title.getItemMeta();
-                    titlemeta.setOwner("88f2cc0c-0386-44fb-ab1d-ab1b6d7f1dbb");
+                    OfflinePlayer orangemax = Bukkit.getOfflinePlayer("88f2cc0c-0386-44fb-ab1d-ab1b6d7f1dbb");
+                    titlemeta.setOwningPlayer(orangemax);
                     titlemeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Admin Gui");
                     ArrayList titlelore = new ArrayList<>();
                     title.setItemMeta(titlemeta);
@@ -47,7 +48,7 @@ public class admingui implements CommandExecutor {
                     ItemMeta tpmeta = playertp.getItemMeta();
                     tpmeta.setDisplayName(ChatColor.GREEN + "Teleport To Player");
 
-
+                    p.openInventory(admin);
                     admin.setItem(1, ban);
                 } else {
                     p.sendMessage(ChatColor.RED + "You do not have the correct permissions!");
