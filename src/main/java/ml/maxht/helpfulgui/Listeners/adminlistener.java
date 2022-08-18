@@ -1,5 +1,6 @@
 package ml.maxht.helpfulgui.Listeners;
 
+import ml.maxht.helpfulgui.Helpfulgui;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class adminlistener implements Listener {
 
@@ -27,12 +29,25 @@ public class adminlistener implements Listener {
             switch (e.getCurrentItem().getType()) {
 
                 case NETHERITE_AXE:
-                    Inventory baninv = Bukkit.createInventory(p, 36, ChatColor.RED + "Ban Player");
+                    p.closeInventory();
+                    Inventory inv = Bukkit.createInventory(p, 36, "Admin Gui: Ban Player");
+                    int i = 0;
+                    for(Player player : Bukkit.getOnlinePlayers())
+                    {
+                        ItemStack head = new ItemStack(Material.PLAYER_HEAD);
+                        ItemMeta headmeta = head.getItemMeta();
+                        headmeta.setOwnerProfile(player.getPlayerProfile());
+                        headmeta.setDisplayName(p.getDisplayName());
+                        headmeta.setLore(Collections.singletonList("Ban this player"));
+                        head.setItemMeta(headmeta);
+                        inv.setItem(i, head);
+                        i++;
+                    }
+                    p.openInventory(inv);
+                    }
+                    e.setCancelled(true);
+                }
 
             }
-            e.setCancelled(true);
+
         }
-
-    }
-
-}
