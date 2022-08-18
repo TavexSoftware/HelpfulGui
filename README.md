@@ -1,6 +1,9 @@
 # HelpfulGui
  A Helpful GUI Plugin for Spigot
 
+THIS PLUGIN IS NOT FINISHED.
+Feel free to download it and check for bugs however it is not finished in any way
+
 This Project is now owned and run by <a href='github.com/tavexsoftware'>Tavex Software</a>
 
 ## Help Contribute
