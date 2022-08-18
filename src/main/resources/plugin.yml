@@ -16,4 +16,7 @@ commands:
       - iwanttodie
       - death
       - dieplayer
+  admin:
+    description: Admin Gui Command
+    permission: helpfulgui.admin
 

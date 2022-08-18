@@ -12,6 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,9 +36,9 @@ public class adminlistener implements Listener {
                     for(Player player : Bukkit.getOnlinePlayers())
                     {
                         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
-                        ItemMeta headmeta = head.getItemMeta();
+                        SkullMeta headmeta = (SkullMeta) head.getItemMeta();
                         headmeta.setOwnerProfile(player.getPlayerProfile());
-                        headmeta.setDisplayName(p.getDisplayName());
+                        headmeta.setDisplayName(player.getDisplayName());
                         headmeta.setLore(Collections.singletonList("Ban this player"));
                         head.setItemMeta(headmeta);
                         inv.setItem(i, head);
