@@ -26,17 +26,6 @@ public class admingui implements CommandExecutor {
             if (sender instanceof Player p) {
                 if (p.hasPermission("helpfulgui.admin")) {
                     Inventory admin = Bukkit.createInventory(p, 18, ChatColor.YELLOW + "Admin Gui");
-                    ItemStack title = new ItemStack(Material.PLAYER_HEAD);
-                    SkullMeta titlemeta = (SkullMeta) title.getItemMeta();
-                    OfflinePlayer orangemax = Bukkit.getOfflinePlayer("88f2cc0c-0386-44fb-ab1d-ab1b6d7f1dbb");
-                    titlemeta.setOwningPlayer(orangemax);
-                    titlemeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Admin Gui");
-                    ArrayList titlelore = new ArrayList<>();
-                    title.setItemMeta(titlemeta);
-                    admin.setItem(0, title);
-                    titlelore.add("GUI By Orange_Max");
-                    titlelore.add("With Tavex Software");
-                    titlemeta.setLore(titlelore);
                     ItemStack ban = new ItemStack(Material.NETHERITE_AXE);
                     ItemMeta banmeta = ban.getItemMeta();
                     banmeta.setDisplayName(ChatColor.RED + "Ban");
@@ -44,12 +33,13 @@ public class admingui implements CommandExecutor {
                     banlore.add("Choose a player to ban");
                     banmeta.setLore(banlore);
                     banmeta.addEnchant(Enchantment.DAMAGE_ALL, 100, true);
+                    ban.setItemMeta(banmeta);
                     ItemStack playertp = new ItemStack(Material.ENDER_PEARL, 1);
                     ItemMeta tpmeta = playertp.getItemMeta();
                     tpmeta.setDisplayName(ChatColor.GREEN + "Teleport To Player");
+                    admin.setItem(0, ban);
 
                     p.openInventory(admin);
-                    admin.setItem(1, ban);
                 } else {
                     p.sendMessage(ChatColor.RED + "You do not have the correct permissions!");
                 }
