@@ -49,7 +49,7 @@ public class banplayer implements Listener {
                 ArrayList nothlore = new ArrayList<>();
                 nothlore.add("Nothing Here!");
                 nothmeta.setLore(nothlore);
-                no.setItemMeta(nothmeta);
+                nothing.setItemMeta(nothmeta);
                 sure.setItem(0, yes);
                 sure.setItem(1, yes);
                 sure.setItem(2, yes);
@@ -72,7 +72,7 @@ public class banplayer implements Listener {
 
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Admin Gui: Really Ban?")){
             System.out.println("CLicked in Sure menu");
-            if (e.getCurrentItem().getItemMeta().getDisplayName() == ChatColor.GREEN + "Yes"){
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Yes")){
                 System.out.println("Clicked yes");
                 p.closeInventory();
                 String name = ChatColor.stripColor(e.getClick().name());
@@ -80,9 +80,9 @@ public class banplayer implements Listener {
                 p.getServer().getPlayer(name).kickPlayer("You have been banned from the server");
                 p.sendMessage("Banned Player");
             }
-            if (e.getCurrentItem().getItemMeta().getDisplayName() == ChatColor.RED + "No"){
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "No")){
                 p.closeInventory();
-                Inventory inv = Bukkit.createInventory(p, 45, ChatColor.RED + "Admin Gui: Ban Player");
+                Inventory inv = Bukkit.createInventory(p, 54, ChatColor.RED + "Admin Gui: Ban Player");
                 int i = 0;
                 for(Player player : Bukkit.getOnlinePlayers())
                 {
@@ -103,7 +103,7 @@ public class banplayer implements Listener {
                 backlore.add("Main admin screen");
                 backmeta.setLore(backlore);
                 back.setItemMeta(backmeta);
-                inv.setItem(44, back);
+                inv.setItem(53, back);
                 p.openInventory(inv);
             }
             e.setCancelled(true);

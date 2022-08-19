@@ -49,7 +49,7 @@ public class adminlistener implements Listener {
                 backlore.add("Main admin screen");
                 backmeta.setLore(backlore);
                 back.setItemMeta(backmeta);
-                inv.setItem(44, back);
+                inv.setItem(53, back);
                 p.closeInventory();
                 p.openInventory(inv);
             }
