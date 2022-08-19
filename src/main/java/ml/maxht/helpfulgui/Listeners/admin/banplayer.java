@@ -71,14 +71,12 @@ public class banplayer implements Listener {
 
 
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Admin Gui: Really Ban?")){
-            System.out.println("CLicked in Sure menu");
             if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Yes")){
-                System.out.println("Clicked yes");
                 p.closeInventory();
-                String name = ChatColor.stripColor(e.getClick().name());
+                String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
                 p.getServer().getBanList(BanList.Type.NAME).addBan(name, "You have been banned from the server", null, p.getDisplayName());
                 p.getServer().getPlayer(name).kickPlayer("You have been banned from the server");
-                p.sendMessage("Banned Player");
+                p.sendMessage(ChatColor.RED + name + " has been banned!");
             }
             if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "No")){
                 p.closeInventory();
