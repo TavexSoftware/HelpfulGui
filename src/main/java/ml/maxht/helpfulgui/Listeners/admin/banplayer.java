@@ -25,7 +25,7 @@ public class banplayer implements Listener {
 
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Admin Gui: Ban Player")) {
 
-            if (e.getCurrentItem().getType() == Material.PLAYER_HEAD) {
+            if (e.getCurrentItem().getType().equals(Material.PLAYER_HEAD)) {
                 Player playerban = p.getServer().getPlayerExact(ChatColor.stripColor(e.getCurrentItem().getItemMeta().getDisplayName()));
                 Inventory sure = Bukkit.createInventory(p, 9, ChatColor.RED + "Admin Gui: Really Ban?");
                 ItemStack yes = new ItemStack(Material.GREEN_STAINED_GLASS);

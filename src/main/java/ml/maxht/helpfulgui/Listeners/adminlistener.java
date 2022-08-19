@@ -53,6 +53,31 @@ public class adminlistener implements Listener {
                 p.closeInventory();
                 p.openInventory(inv);
             }
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Teleport A Player")){
+                Inventory inv = Bukkit.createInventory(p, 54, ChatColor.RED + "Admin Gui: Teleport Player");
+                int i = 0;
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    ItemStack head = new ItemStack(Material.PLAYER_HEAD);
+                    SkullMeta headmeta = (SkullMeta) head.getItemMeta();
+                    headmeta.setOwnerProfile(player.getPlayerProfile());
+                    headmeta.setDisplayName(player.getDisplayName());
+                    headmeta.setLore(Collections.singletonList("Teleport this player"));
+                    head.setItemMeta(headmeta);
+                    inv.setItem(inv.firstEmpty(), head);
+                    i++;
+                }
+                ItemStack back = new ItemStack(Material.BARRIER, 1);
+                ItemMeta backmeta = back.getItemMeta();
+                backmeta.setDisplayName(ChatColor.RED + "Back");
+                ArrayList backlore = new ArrayList<>();
+                backlore.add("Go back to");
+                backlore.add("Main admin screen");
+                backmeta.setLore(backlore);
+                back.setItemMeta(backmeta);
+                inv.setItem(53, back);
+                p.closeInventory();
+                p.openInventory(inv);
+            }
             e.setCancelled(true);
 
                 }
