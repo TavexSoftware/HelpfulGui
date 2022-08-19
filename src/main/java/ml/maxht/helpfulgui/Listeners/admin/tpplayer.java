@@ -7,7 +7,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class tpplayer implements Listener {
 
     @EventHandler
-    public void tpplayer (InventoryClickEvent e){
+    public void playertp (InventoryClickEvent e){
         
     }
 
