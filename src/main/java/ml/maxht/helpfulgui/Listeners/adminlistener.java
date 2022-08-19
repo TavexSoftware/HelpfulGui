@@ -5,7 +5,6 @@ import org.bukkit.BanList;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.Skull;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,7 +16,6 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.UUID;
 
 public class adminlistener implements Listener {
 
@@ -26,11 +24,11 @@ public class adminlistener implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.YELLOW + "Admin Menu")) {
+        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.YELLOW + "Admin Gui")) {
+
 
 
             if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "Ban")) {
-                p.closeInventory();
                 Inventory inv = Bukkit.createInventory(p, 54, ChatColor.RED + "Admin Gui: Ban Player");
                 int i = 0;
                 for (Player player : Bukkit.getOnlinePlayers()) {
@@ -52,6 +50,7 @@ public class adminlistener implements Listener {
                 backmeta.setLore(backlore);
                 back.setItemMeta(backmeta);
                 inv.setItem(44, back);
+                p.closeInventory();
                 p.openInventory(inv);
             }
             e.setCancelled(true);
