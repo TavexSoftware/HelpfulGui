@@ -36,7 +36,7 @@ public class admingui implements CommandExecutor {
                     ban.setItemMeta(banmeta);
                     ItemStack playertp = new ItemStack(Material.ENDER_PEARL, 1);
                     ItemMeta tpmeta = playertp.getItemMeta();
-                    tpmeta.setDisplayName(ChatColor.GREEN + "Teleport");
+                    tpmeta.setDisplayName(ChatColor.GREEN + "Teleport A Player");
                     ArrayList tplore = new ArrayList<>();
                     tplore.add("Choose a player to teleport");
                     tpmeta.addEnchant(Enchantment.SOUL_SPEED, 100, true);

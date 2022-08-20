@@ -54,7 +54,7 @@ public class adminlistener implements Listener {
                 p.openInventory(inv);
             }
             if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Teleport A Player")){
-                Inventory inv = Bukkit.createInventory(p, 54, ChatColor.RED + "Admin Gui: Teleport Player");
+                Inventory inv = Bukkit.createInventory(p, 54, ChatColor.GREEN + "Admin Gui: Teleport Player");
                 int i = 0;
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     ItemStack head = new ItemStack(Material.PLAYER_HEAD);

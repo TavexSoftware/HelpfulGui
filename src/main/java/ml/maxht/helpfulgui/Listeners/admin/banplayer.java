@@ -47,7 +47,7 @@ public class banplayer implements Listener {
                 nothmeta.setOwningPlayer(playerban);
                 nothmeta.setDisplayName(ChatColor.YELLOW + e.getCurrentItem().getItemMeta().getDisplayName());
                 ArrayList nothlore = new ArrayList<>();
-                nothlore.add("Nothing Here!");
+                nothlore.add("Targeted Player");
                 nothmeta.setLore(nothlore);
                 nothing.setItemMeta(nothmeta);
                 sure.setItem(0, yes);

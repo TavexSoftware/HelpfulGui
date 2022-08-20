@@ -3,6 +3,7 @@ package ml.maxht.helpfulgui;
 import ml.maxht.helpfulgui.Commands.admingui;
 import ml.maxht.helpfulgui.Commands.killgui;
 import ml.maxht.helpfulgui.Listeners.admin.banplayer;
+import ml.maxht.helpfulgui.Listeners.admin.tpplayer;
 import ml.maxht.helpfulgui.Listeners.adminlistener;
 import ml.maxht.helpfulgui.Listeners.killlistener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,6 +21,7 @@ public final class Helpfulgui extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new adminlistener(), this);
         getServer().getPluginManager().registerEvents(new banplayer(), this);
         getServer().getPluginManager().registerEvents(new killlistener(), this);
+        getServer().getPluginManager().registerEvents(new tpplayer(), this);
         getCommand("killgui").setExecutor(new killgui());
         getCommand("admin").setExecutor(new admingui());
         // Do everything else first
