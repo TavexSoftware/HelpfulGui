@@ -2,6 +2,7 @@ package ml.maxht.helpfulgui.Listeners.admin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -69,14 +70,17 @@ public class tpplayer implements Listener {
         }
 
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.GREEN + "Admin Gui: Teleport")){
-            Player p = (Player) e.getWhoClicked();
             if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Tp To Player")){
                 Player target = p.getServer().getPlayerExact(e.getInventory().getItem(4).getItemMeta().getDisplayName());
-
+                Location loc = target.getLocation();
+                p.closeInventory();
+                p.teleport(loc);
             }
             if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "Bring")){
                 Player target = p.getServer().getPlayerExact(e.getInventory().getItem(4).getItemMeta().getDisplayName());
+                Location loc = p.getLocation();
                 p.closeInventory();
+                target.teleport(loc);
             }
 
             e.setCancelled(true);
