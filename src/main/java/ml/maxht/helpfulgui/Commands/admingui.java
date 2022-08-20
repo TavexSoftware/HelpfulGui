@@ -42,8 +42,17 @@ public class admingui implements CommandExecutor {
                     tpmeta.addEnchant(Enchantment.SOUL_SPEED, 100, true);
                     tpmeta.setLore(tplore);
                     playertp.setItemMeta(tpmeta);
+                    ItemStack kick = new ItemStack(Material.DIAMOND_BOOTS);
+                    ItemMeta kickmeta = kick.getItemMeta();
+                    kickmeta.setDisplayName(ChatColor.RED + "Kick");
+                    ArrayList kicklore = new ArrayList<>();
+                    kicklore.add("Choose a player to kick");
+                    kickmeta.setLore(kicklore);
+                    kickmeta.addEnchant(Enchantment.DAMAGE_ALL, 100, true);
+                    kick.setItemMeta(kickmeta);
                     admin.setItem(0, ban);
                     admin.setItem(1, playertp);
+                    admin.setItem(2, kick);
 
                     p.openInventory(admin);
                 } else {
