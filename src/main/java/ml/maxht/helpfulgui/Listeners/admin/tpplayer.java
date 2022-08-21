@@ -70,17 +70,16 @@ public class tpplayer implements Listener {
         }
 
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.GREEN + "Admin Gui: Teleport")){
-            if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Tp To Player")){
-                Player target = p.getServer().getPlayerExact(e.getInventory().getItem(4).getItemMeta().getDisplayName());
-                Location loc = target.getLocation();
-                p.closeInventory();
-                p.teleport(loc);
+            if (e.getCurrentItem().getType().equals(Material.ENDER_PEARL)){
+                Player target = p.getServer().getPlayerExact(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
+                Location targetloc = target.getLocation();
+                p.teleport(targetloc);
             }
             if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "Bring")){
                 Player target = p.getServer().getPlayerExact(e.getInventory().getItem(4).getItemMeta().getDisplayName());
-                Location loc = p.getLocation();
+                Location ploc = p.getLocation();
                 p.closeInventory();
-                target.teleport(loc);
+                target.teleport(ploc);
             }
 
             e.setCancelled(true);

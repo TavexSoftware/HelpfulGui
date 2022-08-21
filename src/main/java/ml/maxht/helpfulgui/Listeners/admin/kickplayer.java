@@ -79,6 +79,8 @@ public class kickplayer implements Listener {
                 p.performCommand("admin");
             }
 
+            e.setCancelled(true);
+
         }
 
 
