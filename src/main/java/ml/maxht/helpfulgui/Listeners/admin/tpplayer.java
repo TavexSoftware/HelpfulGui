@@ -74,6 +74,7 @@ public class tpplayer implements Listener {
                 Player target = p.getServer().getPlayerExact(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
                 Location targetloc = target.getLocation();
                 p.teleport(targetloc);
+                p.closeInventory();
             }
             if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "Bring")){
                 Player target = p.getServer().getPlayerExact(e.getInventory().getItem(4).getItemMeta().getDisplayName());
