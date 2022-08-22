@@ -43,7 +43,7 @@ public class killlistener implements Listener {
             ArrayList nothlore = new ArrayList<>();
             nothlore.add("Nothing Here!");
             nothmeta.setLore(nothlore);
-            no.setItemMeta(nothmeta);
+            nothing.setItemMeta(nothmeta);
             sure.setItem(0, yes);
             sure.setItem(1, yes);
             sure.setItem(2, yes);

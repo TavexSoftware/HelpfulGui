@@ -19,4 +19,7 @@ commands:
   admin:
     description: Admin Gui Command
     permission: helpfulgui.admin
+    aliases:
+      - admintools
+
 

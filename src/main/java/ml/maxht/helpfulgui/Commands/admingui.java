@@ -9,6 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -26,16 +27,6 @@ public class admingui implements CommandExecutor {
             if (sender instanceof Player p) {
                 if (p.hasPermission("helpfulgui.admin")) {
                     Inventory admin = Bukkit.createInventory(p, 18, ChatColor.YELLOW + "Admin Gui");
-                    ItemStack title = new ItemStack(Material.PLAYER_HEAD);
-                    SkullMeta titlemeta = (SkullMeta) title.getItemMeta();
-                    titlemeta.setOwner("88f2cc0c-0386-44fb-ab1d-ab1b6d7f1dbb");
-                    titlemeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Admin Gui");
-                    ArrayList titlelore = new ArrayList<>();
-                    title.setItemMeta(titlemeta);
-                    admin.setItem(0, title);
-                    titlelore.add("GUI By Orange_Max");
-                    titlelore.add("With Tavex Software");
-                    titlemeta.setLore(titlelore);
                     ItemStack ban = new ItemStack(Material.NETHERITE_AXE);
                     ItemMeta banmeta = ban.getItemMeta();
                     banmeta.setDisplayName(ChatColor.RED + "Ban");
@@ -43,12 +34,38 @@ public class admingui implements CommandExecutor {
                     banlore.add("Choose a player to ban");
                     banmeta.setLore(banlore);
                     banmeta.addEnchant(Enchantment.DAMAGE_ALL, 100, true);
+                    ban.setItemMeta(banmeta);
                     ItemStack playertp = new ItemStack(Material.ENDER_PEARL, 1);
                     ItemMeta tpmeta = playertp.getItemMeta();
-                    tpmeta.setDisplayName(ChatColor.GREEN + "Teleport To Player");
+                    tpmeta.setDisplayName(ChatColor.GREEN + "Teleport A Player");
+                    ArrayList tplore = new ArrayList<>();
+                    tplore.add("Choose a player to teleport");
+                    tpmeta.addEnchant(Enchantment.SOUL_SPEED, 100, true);
+                    tpmeta.setLore(tplore);
+                    playertp.setItemMeta(tpmeta);
+                    ItemStack kick = new ItemStack(Material.DIAMOND_BOOTS);
+                    ItemMeta kickmeta = kick.getItemMeta();
+                    kickmeta.setDisplayName(ChatColor.RED + "Kick");
+                    ArrayList kicklore = new ArrayList<>();
+                    kicklore.add("Choose a player to kick");
+                    kickmeta.setLore(kicklore);
+                    kickmeta.addEnchant(Enchantment.DAMAGE_ALL, 100, true);
+                    kick.setItemMeta(kickmeta);
+                    if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("enableserverstop")) {
+                        ItemStack stop = new ItemStack(Material.BARRIER);
+                        ItemMeta stopmeta = stop.getItemMeta();
+                        stopmeta.setDisplayName(ChatColor.RED + "Stop Server");
+                        ArrayList stoplore = new ArrayList<>();
+                        stoplore.add("Stops the server");
+                        stopmeta.setLore(stoplore);
+                        stop.setItemMeta(stopmeta);
+                        admin.setItem(17, stop);
+                    }
+                    admin.setItem(0, ban);
+                    admin.setItem(1, playertp);
+                    admin.setItem(2, kick);
 
-
-                    admin.setItem(1, ban);
+                    p.openInventory(admin);
                 } else {
                     p.sendMessage(ChatColor.RED + "You do not have the correct permissions!");
                 }
