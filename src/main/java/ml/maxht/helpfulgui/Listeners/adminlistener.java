@@ -104,6 +104,41 @@ public class adminlistener implements Listener {
                 p.closeInventory();
                 p.openInventory(inv);
             }
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.RED + "Stop Server")){
+                Inventory sure = Bukkit.createInventory(p, 9, ChatColor.RED + "Stop Server: Delay?");
+                ItemStack yes = new ItemStack(Material.CLOCK);
+                ItemMeta yesmeta = yes.getItemMeta();
+                yesmeta.setDisplayName(ChatColor.GREEN + "Delay");
+                ArrayList yeslore = new ArrayList<>();
+                yeslore.add("Waits 1 minute before stopping");
+                yesmeta.setLore(yeslore);
+                yes.setItemMeta(yesmeta);
+                ItemStack no = new ItemStack(Material.TNT);
+                ItemMeta nometa = no.getItemMeta();
+                nometa.setDisplayName(ChatColor.RED + "Stop Now");
+                ArrayList nolore = new ArrayList<>();
+                nolore.add("Stops server immediately");
+                nometa.setLore(nolore);
+                no.setItemMeta(nometa);
+                ItemStack nothing = new ItemStack(Material.BARRIER);
+                ItemMeta nothmeta = nothing.getItemMeta();
+                nothmeta.setDisplayName(ChatColor.YELLOW + "Nothing Here");
+                ArrayList nothlore = new ArrayList<>();
+                nothlore.add("Nothing Here!");
+                nothmeta.setLore(nothlore);
+                nothing.setItemMeta(nothmeta);
+                sure.setItem(0, yes);
+                sure.setItem(1, yes);
+                sure.setItem(2, yes);
+                sure.setItem(3, yes);
+                sure.setItem(4, nothing);
+                sure.setItem(5, no);
+                sure.setItem(6, no);
+                sure.setItem(7, no);
+                sure.setItem(8, no);
+                p.closeInventory();
+                p.openInventory(sure);
+            }
 
             e.setCancelled(true);
 

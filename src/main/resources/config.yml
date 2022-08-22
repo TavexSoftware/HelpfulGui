@@ -7,3 +7,5 @@ killguiperms: false
 
 # Admin Gui Specific
 enableadmin: true
+# Enable the admin gui to stop the server
+enableserverstop: true

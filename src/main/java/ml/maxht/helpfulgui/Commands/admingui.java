@@ -9,6 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -25,7 +26,7 @@ public class admingui implements CommandExecutor {
         if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("enableadmin")) {
             if (sender instanceof Player p) {
                 if (p.hasPermission("helpfulgui.admin")) {
-                    Inventory admin = Bukkit.createInventory(p, 9, ChatColor.YELLOW + "Admin Gui");
+                    Inventory admin = Bukkit.createInventory(p, 18, ChatColor.YELLOW + "Admin Gui");
                     ItemStack ban = new ItemStack(Material.NETHERITE_AXE);
                     ItemMeta banmeta = ban.getItemMeta();
                     banmeta.setDisplayName(ChatColor.RED + "Ban");
@@ -50,6 +51,16 @@ public class admingui implements CommandExecutor {
                     kickmeta.setLore(kicklore);
                     kickmeta.addEnchant(Enchantment.DAMAGE_ALL, 100, true);
                     kick.setItemMeta(kickmeta);
+                    if (Helpfulgui.getPlugin(Helpfulgui.class).getConfig().getBoolean("enableserverstop")) {
+                        ItemStack stop = new ItemStack(Material.BARRIER);
+                        ItemMeta stopmeta = stop.getItemMeta();
+                        stopmeta.setDisplayName(ChatColor.RED + "Stop Server");
+                        ArrayList stoplore = new ArrayList<>();
+                        stoplore.add("Stops the server");
+                        stopmeta.setLore(stoplore);
+                        stop.setItemMeta(stopmeta);
+                        admin.setItem(17, stop);
+                    }
                     admin.setItem(0, ban);
                     admin.setItem(1, playertp);
                     admin.setItem(2, kick);
